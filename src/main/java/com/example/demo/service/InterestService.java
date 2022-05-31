@@ -12,4 +12,7 @@ public interface InterestService {
 	List<InterestRate> getAll();
 
 	InterestRate saveInterest(InterestRate interestRate);
+	InterestRate updateInterest(InterestRate rate);
+
+	String deleteInterest(int id);
 }

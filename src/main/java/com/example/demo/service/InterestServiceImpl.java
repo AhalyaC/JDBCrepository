@@ -27,4 +27,16 @@ public class InterestServiceImpl implements InterestService{
 			return interestRepository.save(interestRate);
 		
 	}
+	
+	@Override
+	public InterestRate updateInterest(InterestRate rate) {
+		return interestRepository.update(rate);
+	}
+
+
+	@Override
+	public String deleteInterest(int id) {
+		
+		return interestRepository.delete(id);
+	}
 }

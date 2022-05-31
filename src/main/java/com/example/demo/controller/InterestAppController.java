@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,4 +44,18 @@ public class InterestAppController {
 	public List<InterestRate> getAllRate(){
 		return service.getAll();
 	}
+	
+	@PostMapping("/update-interest/{interestId}")
+    public InterestRate updateInterestRate(@PathVariable("interestId") int intersestId,@RequestBody InterestRate rate) {
+		rate.setInterestId(intersestId);
+    	return service.updateInterest(rate);
+    	
+	}
+	
+	@GetMapping("/delete-interest/{id}")
+	public String deleteInterest(@PathVariable("id") int id) {
+		return service.deleteInterest(id);
+		
+	}
+
 }

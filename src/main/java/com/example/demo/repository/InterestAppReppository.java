@@ -31,4 +31,18 @@ public class InterestAppReppository {
 				System.out.println(rate);
 		return interestRate;
 	}
+	
+	public InterestRate update(InterestRate interestRate) {
+		String sql ="update interestrate set rate_specification_code = ? where interest_id = ?";
+		int rate = jdbcTemplate.update(sql,interestRate.getRateSpecificationCode(),interestRate.getInterestId());
+				System.out.println(rate);
+		return interestRate;
+	}
+
+	public String delete(int id) {
+		String sql ="delete from interestrate where interest_id = ?";
+		int rate = jdbcTemplate.update(sql,id);
+		return "Deleted successfully";
+	}
+	
 }
